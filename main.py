@@ -20,6 +20,7 @@ from prompt_toolkit.layout.menus import CompletionsMenu
 from prompt_toolkit.layout.prompt import DefaultPrompt
 from prompt_toolkit.layout.toolbars import SystemToolbar, ArgToolbar, CompletionsToolbar, SearchToolbar
 from prompt_toolkit.shortcuts import create_eventloop
+from prompt_toolkit.styles import default_style_extensions
 
 from pygments.style import Style
 from pygments.styles.default import DefaultStyle
@@ -55,6 +56,7 @@ class TestStyle(Style):
 
     }
     styles.update(DefaultStyle.styles)
+    styles.update(default_style_extensions)
 
 
 def main():
@@ -120,6 +122,7 @@ def main():
 
     eventloop.close()
     click.clear()
+    print('Goodbye!')
 
 
 if __name__ == '__main__':
