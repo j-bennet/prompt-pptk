@@ -1,8 +1,5 @@
 build: false
 
-services:
-  - postgresql
-
 environment:
   matrix:
     - PYTHON: "C:\\Python27"

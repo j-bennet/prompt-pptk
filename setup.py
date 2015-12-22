@@ -25,9 +25,10 @@ setup(
             'tox>=1.9.2'
         ],
     },
-    entry_points={
-        'console_scripts': 'pptk = prompt_pptk.main:main'
-    },
+    entry_points='''
+        [console_scripts]
+        pptk=prompt_pptk.main:main
+    ''',
     packages=[],
     scripts=[],
     classifiers=[
