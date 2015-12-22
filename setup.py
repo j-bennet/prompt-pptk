@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(
     name='prompt_pptk',
@@ -13,23 +9,16 @@ setup(
     download_url='http://github.com/j-bennet/prompt-pptk',
     author_email='i[dot]chernyavska[at]gmail[dot]com.',
     version='0.1',
+    packages=find_packages(),
     install_requires=[
         'prompt_toolkit>=0.46',
         'pygments>=2.0.2',
         'click>=4.1'
     ],
-    extras_require={
-        'testing': [
-            'pytest>=2.7.0',
-            'mock>=1.0.1',
-            'tox>=1.9.2'
-        ],
-    },
     entry_points='''
         [console_scripts]
         pptk=prompt_pptk.main:main
     ''',
-    packages=[],
     scripts=[],
     classifiers=[
         'Intended Audience :: Developers',
