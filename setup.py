@@ -6,14 +6,15 @@ except ImportError:
     from distutils.core import setup
 
 setup(
-    description='Panel interface with Python prompt toolkit',
+    name='prompt_pptk',
+    description='CLI example with Python prompt toolkit',
     author='Iryna Cherniavska',
     url='http://github.com/j-bennet/prompt-pptk',
     download_url='http://github.com/j-bennet/prompt-pptk',
     author_email='i[dot]chernyavska[at]gmail[dot]com.',
     version='0.1',
     install_requires=[
-        'prompt-toolkit>=0.45',
+        'prompt_toolkit>=0.46',
         'pygments>=2.0.2',
         'click>=4.1'
     ],
@@ -25,11 +26,10 @@ setup(
         ],
     },
     entry_points={
-        'console_scripts': 'pw = main:main'
+        'console_scripts': 'pptk = prompt_pptk.main:main'
     },
     packages=[],
     scripts=[],
-    name='promptpptk',
     classifiers=[
         'Intended Audience :: Developers',
         'Operating System :: Unix',
