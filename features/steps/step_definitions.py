@@ -4,6 +4,12 @@ import re
 import pexpect
 import platform
 from behave import given, when, then
+if platform.system() != 'Windows':
+    from pexpect import spawnu as pxspawn
+    from pexpect import EOF
+else:
+    from winpexpect import winspawn as pxspawn
+    from winpexpect import EOF
 
 
 @given('the module "{modulename}" is installed')
@@ -19,11 +25,7 @@ def step_run_cli(context):
     """
     Run the process using pexpect.
     """
-    if platform.system() != 'Windows':
-        context.cli = pexpect.spawnu('pptk')
-    else:
-        from pexpect.popen_spawn import PopenSpawn
-        context.cli = PopenSpawn('pptk')
+    context.cli = pxspawn('pptk')
     context.exit_sent = False
 
 
@@ -65,7 +67,7 @@ def step_wait_exit(context):
     """
     Make sure the cli exits.
     """
-    _expect_exact(context, pexpect.EOF, timeout=5)
+    _expect_exact(context, EOF, timeout=5)
 
 
 def _expect_exact(context, expected, timeout):
